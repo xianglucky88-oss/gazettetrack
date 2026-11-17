@@ -1,1 +1,1 @@
-"""gazettetrack baseline (single-responsibility pipeline)."""
+"""gazettetrack package (single-responsibility pipeline)."""
