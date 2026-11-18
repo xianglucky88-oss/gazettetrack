@@ -1,9 +1,10 @@
 """单一职责：本地 sqlite3 持久化，提供幂等 upsert / 计数 / 全量读取。"""
 import json, sqlite3
-from .config import DB_PATH
+from . import config
 
-def connect():
-    con = sqlite3.connect(DB_PATH)
+def connect(db_path=None):
+    path = db_path or config.DB_PATH  # 动态读取，允许测试/运行期覆盖配置
+    con = sqlite3.connect(path)
     con.execute("CREATE TABLE IF NOT EXISTS records(key TEXT PRIMARY KEY, data TEXT NOT NULL)")
     return con
 

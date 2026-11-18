@@ -3,6 +3,9 @@ __pycache__/
 .pytest_cache/
 *.db
 .venv/
+# 附件证据归档（不可信下载内容，内容寻址 blob + 暂存目录）
+archive/
+attachments.db
 # Local environment and secret material
 .env
 .env.*
