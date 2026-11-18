@@ -1,11 +1,11 @@
-"""薄编排：loader → normalizer→gazette_parse→dedupe→attach → keyer → store。不含业务判断。"""
+"""薄编排：loader → normalizer→gazette_parse→entity_resolve→dedupe→attach → keyer → store。不含业务判断。"""
 import importlib
 from . import store as _store
 from . import loader as _loader
 from .keyer import key_of
 from .models import Record
 
-CHAIN_NAMES = ['normalizer', 'gazette_parse', 'dedupe', 'attach']
+CHAIN_NAMES = ['normalizer', 'gazette_parse', 'entity_resolve', 'dedupe', 'attach']
 
 def run(con=None):
     own = con is None
