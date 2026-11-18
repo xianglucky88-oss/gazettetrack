@@ -12,6 +12,9 @@ def upsert(con, record):
                 "ON CONFLICT(key) DO UPDATE SET data=excluded.data",
                 (record.key, json.dumps(record.data, ensure_ascii=False)))
 
+def delete(con, key):
+    con.execute("DELETE FROM records WHERE key=?", (key,))
+
 def commit(con): con.commit()
 
 def count(con): return con.execute("SELECT COUNT(*) FROM records").fetchone()[0]
